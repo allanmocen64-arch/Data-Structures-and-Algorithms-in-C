@@ -11,7 +11,7 @@ int main()
 
     while (left < right)
     {
-        int temp = numbers[left];
+        temp = numbers[left];
         numbers[left] = numbers[right];
         numbers[right] = temp;
         left++;
@@ -20,7 +20,7 @@ int main()
     printf("Reversed Array: ");
     for (int i = 0; i < size; i++)
     {
-        printf("%d", numbers[i]);
+        printf("%d ", numbers[i]);
     }
 
     return 0;
