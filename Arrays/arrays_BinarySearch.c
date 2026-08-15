@@ -28,7 +28,7 @@ int main()
         }
         else
         {
-            left = middle - 1;
+            right = middle - 1;
         }
     }
     if (found != -1)
