@@ -25,14 +25,28 @@ int main()
     node3->prev = node2;
     node3->next = NULL;
 
+    // inserting 25
+    struct Node *newNode = malloc(sizeof(struct Node));
+    newNode->data = 25;
+    newNode->prev = node2;
+    newNode->next = node3;
+    node2->next = newNode;
+    node3->prev = newNode;
+
+    // deleting 30
+    newNode->next = NULL;
+    free(node3);
+
+    // print forward
     struct Node *current = node1;
     while (current != NULL)
     {
         printf("%d ", current->data);
         current = current->next;
-        break;
     }
+    printf("\n");
 
+    // print backward
     current = node3;
     while (current != NULL)
     {
@@ -42,7 +56,7 @@ int main()
 
     free(node1);
     free(node2);
-    free(node3);
+    free(newNode);
 
     return 0;
 }
