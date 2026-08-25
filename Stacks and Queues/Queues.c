@@ -40,6 +40,19 @@ void peek()
     }
     printf("Front: %d\n", queue[front]);
 }
+void display()
+{
+    if (front == -1 || front > rear)
+    {
+        printf("Queue is empty\n");
+        return;
+    }
+    for (int i = front; i <= rear; i++)
+    {
+        printf("%d ", queue[i]);
+    }
+    printf("\n");
+}
 
 int main()
 {
@@ -47,11 +60,14 @@ int main()
     enqueue(20);
     enqueue(30);
 
+    display();
+
     dequeue();
 
     enqueue(40);
 
     peek();
+    display();
 
     return 0;
 }
