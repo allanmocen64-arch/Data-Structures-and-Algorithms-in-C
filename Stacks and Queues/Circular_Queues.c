@@ -54,6 +54,20 @@ void peek()
 }
 void display()
 {
+    if (front == -1)
+    {
+        printf("Queue is empty!\n");
+        return;
+    }
+    int i = front;
+    while (1)
+    {
+        printf("%d ", queue[i]);
+        if (i == rear)
+            break;
+        i = (i + 1) % SIZE;
+    }
+    printf("\n");
 }
 
 int main()
@@ -65,11 +79,15 @@ int main()
     enqueue(40);
     enqueue(50);
 
+    display();
+
     dequeue();
     dequeue();
 
     enqueue(60);
     enqueue(70);
+
+    display();
 
     return 0;
 }
