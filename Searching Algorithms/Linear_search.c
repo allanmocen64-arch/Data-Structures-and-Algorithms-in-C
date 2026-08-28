@@ -1,20 +1,31 @@
 #include <stdio.h>
 
+int linearSearch(int arr[], int size, int target)
+{
+    for (int i = 0; i < size; i++)
+    {
+        if (arr[i] == target)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
 int main()
 {
 
-    int numbers[] = {10, 20, 30, 40, 50, 60};
-    int target = 40;
+    int scores[] = {45, 72, 81, 63, 90};
+    int result = linearSearch(scores, 5, 81);
 
-    for (int i = 0; i < 5; i++)
+    if (result != -1)
     {
-        if (numbers[i] == target)
-        {
-            printf("Found at index %d\n", i);
-            return 0;
-        }
+        printf("Found at index %d\n", result);
     }
-    printf("Not found!");
+    else
+    {
+        printf("Not Found!\n");
+    }
 
     return 0;
 }
