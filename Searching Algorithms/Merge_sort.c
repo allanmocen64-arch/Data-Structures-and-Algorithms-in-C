@@ -10,7 +10,7 @@ void merge(int arr[], int low, int mid, int high)
 
     while (i <= mid && j <= high)
     {
-        if (arr[i] < arr[j])
+        if (arr[i] <= arr[j])
         {
             temp[k] = arr[i];
             i++;
@@ -22,17 +22,27 @@ void merge(int arr[], int low, int mid, int high)
         }
         k++;
     }
+
     while (i <= mid)
     {
         temp[k] = arr[i];
         i++;
         k++;
     }
+
+    while (j <= high)
+    {
+        temp[k] = arr[j];
+        j++;
+        k++;
+    }
+
     for (i = low; i <= high; i++)
     {
         arr[i] = temp[i];
     }
 }
+
 void mergeSort(int arr[], int low, int high)
 {
     if (low < high)
@@ -41,10 +51,28 @@ void mergeSort(int arr[], int low, int high)
 
         mergeSort(arr, low, mid);
         mergeSort(arr, mid + 1, high);
+        merge(arr, low, mid, high);
     }
 }
 int main()
 {
+    int arr[] = {8, 3, 5, 4, 7, 6, 1, 2};
+    int size = 8;
+    printf("Before sorting: ");
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+
+    mergeSort(arr, 0, size - 1);
+
+    printf("After sorting: ");
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
 
     return 0;
 }
