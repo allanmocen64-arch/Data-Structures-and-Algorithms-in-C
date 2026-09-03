@@ -34,6 +34,22 @@ void quicksort(int arr[], int low, int high)
 
 int main()
 {
+    int arr[] = {6, 3, 8, 2, 5};
+
+    int size = sizeof(arr) / sizeof(arr[0]);
+
+    printf("Before sorting:\n");
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    quicksort(arr, 0, size - 1);
+
+    printf("\nAfter sorting:\n");
+    for (int i = 0; i < size; i++)
+    {
+        printf("%d ", arr[i]);
+    }
 
     return 0;
 }
